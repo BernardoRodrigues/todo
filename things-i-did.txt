@@ -1,0 +1,6 @@
+
+Things I need to do:
+- create structure for project (e.g. drive folder, board, paper, folders, etc)
+- create mockups
+- discuss a few options for frameworks and subsequently languages
+- start writing a project proposal
