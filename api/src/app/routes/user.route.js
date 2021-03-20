@@ -33,7 +33,7 @@ module.exports = userRepository => {
         const password = req.body.password;
         try {
             const user = await userRepository.login(email, password);
-            req.logIn();
+            req.login(user, (err) => console.error(err))
             res.status(200).json(user)
         } catch(err) {
             res.status(400).send({message: 'permissions'})
@@ -48,8 +48,7 @@ module.exports = userRepository => {
             let user = getUser(req.body)
             console.log('User: ', user)
             user = await userRepository.signup(user)
-            req.logIn();
-            passport.authenticate('jwt', {session: false})
+            req.login(user, (err) => console.error(err))
             res.status(201).json(user)
         } catch(err) {
             res.status(400).json(err.message)
@@ -62,7 +61,8 @@ module.exports = userRepository => {
             if (result) {
                 //TODO add custom reply
                 return res.status(200).json({})
-            } 
+            }
+            req.logout();
             return res.status(200).json({})
         } catch(err) {
             res.status(400).json({})
@@ -70,7 +70,7 @@ module.exports = userRepository => {
     })
 
     router.get('/logout', (req, res) => {
-        req.logOut();
+        req.logout();
         res.status(200).json({});
     })
 
