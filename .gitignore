@@ -104,12 +104,16 @@ dist
 .tern-port
 
 # IntelliJ IDEA  
-api/.vscode/*
-!api/.vscode/settings.json
-!api/.vscode/tasks.json
-!api/.vscode/launch.json
-!api/.vscode/extensions.json
-*.code-workspace
+/api/.vscode/*
+!/api/.vscode/settings.json
+!/api/.vscode/tasks.json
+!/api/.vscode/launch.json
+!/api/.vscode/extensions.json
+/.vscode/*
+!/.vscode/settings.json
+!/.vscode/tasks.json
+!/.vscode/launch.json
+!/.vscode/extensions.json
 
 # Local History for Visual Studio Code
 .history/
