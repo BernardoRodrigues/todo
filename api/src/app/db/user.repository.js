@@ -58,25 +58,13 @@ async function signup(db, user = {email, password, firstName, lastName}) {
  * @param {String} password
  * @returns
  */
-async function deleteUser(db, email, password) {
+async function deleteUserById(db, id) {
     try {
-        const { rows } = await db.query(`select user_password 
-        from user_account 
-        where user_email = $1`, email)
-        if (rows.length < 1) {
-            //TODO add custom error
-            throw new Error()
-        }
-        const result = await bcrypt.compare(password, rows[0].user_password)
-        if (result) {
-            await db.query(
-                `delete from user_account where user_email = $1`,
-                email
-                )
-            return true;
-        }
-        //TODO add custom error
-        throw new Error()
+        const { rows } = await db.query(
+            `delete from user_account where user_id = $1`,
+            id
+            )
+        return rows[0]
     } catch(err) {
         console.error(err)
     }
@@ -115,7 +103,7 @@ module.exports = (pepper, db) => {
     return {
         signup: (user) => signup(db, user),
         login: (email, password) => login(db, email, password),
-        deleteUser: (email, password) => deleteUser(db, email, password),
+        deleteUserById: (id) => deleteUserById(db, id),
         findUser: (email) => findUser(db, email)
     }
 }

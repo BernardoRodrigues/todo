@@ -1,7 +1,7 @@
 const cookieParser = require('cookie-parser')
 const express = require('express')
 const passport = require('passport');
-// const passport = require('passport-jwt')
+const jwt = require('passport-jwt')
 
 const router = express.Router()
 
@@ -33,6 +33,7 @@ module.exports = userRepository => {
         const password = req.body.password;
         try {
             const user = await userRepository.login(email, password);
+            req.logIn();
             res.status(200).json(user)
         } catch(err) {
             res.status(400).send({message: 'permissions'})
@@ -47,10 +48,30 @@ module.exports = userRepository => {
             let user = getUser(req.body)
             console.log('User: ', user)
             user = await userRepository.signup(user)
+            req.logIn();
+            passport.authenticate('jwt', {session: false})
             res.status(201).json(user)
         } catch(err) {
             res.status(400).json(err.message)
         }
+    })
+
+    router.delete('/:id', async (req, res) => {
+        try {
+            const result = userRepository.deleteUserById(req.params.id)
+            if (result) {
+                //TODO add custom reply
+                return res.status(200).json({})
+            } 
+            return res.status(200).json({})
+        } catch(err) {
+            res.status(400).json({})
+        }
+    })
+
+    router.get('/logout', (req, res) => {
+        req.logOut();
+        res.status(200).json({});
     })
 
     return router
