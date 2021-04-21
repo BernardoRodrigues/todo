@@ -42,7 +42,7 @@ Response:
 
 ### POST user/logout
 
-### DELETE user/:id
+### DELETE user/
 Request header:
 * Authorization: Bearer token
 Request
