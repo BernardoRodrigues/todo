@@ -1,0 +1,27 @@
+\section{Architecture}
+
+	The architecture will be based on a micro-service system. It'll be divided into three different areas:
+	\begin{enumerate}
+		\item User
+		\item To-do
+		\item Task
+	\end{enumerate}
+
+	%TODO add image here
+
+	Each of these areas are independent from one another and self sufficient, each with it's own responsibilities. 
+	
+	%https://tools.ietf.org/html/rfc7519
+	%https://www.rfc-editor.org/rfc/pdfrfc/rfc7519.txt.pdf
+	
+	% https://www.cs.cmu.edu/afs/cs/project/vit/ftp/pdf/intro_softarch.pdf
+	
+	\subsection{User}
+	The user micro-service will have the operations needed for an user to utilize the application. These operations consist of the sign up, login, logout and, delete.
+	The micro-service will use JSON web tokens \cite{jwt} as a way to make sure the users only access their information.
+	The service is split into two different areas, the repository\cite{repository_pattern} that accesses the database and ,the routing.
+	
+	
+	\subsection{To-do}
+	The to-do micro-service will have the operations
+	 

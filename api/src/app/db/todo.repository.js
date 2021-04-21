@@ -139,6 +139,10 @@ async function cancelTodo(db, {id, isCancelled}) {
     }
 }
 
+export class TodoRepository {
+    
+}
+
 module.exports = (db) => {
     return {
         getAll: () => getAll(db),
@@ -151,3 +155,16 @@ module.exports = (db) => {
         cancelTodo: (partialModel) => cancelTodo(db, partialModel)
     }
 }
+
+// export class TodoRepository {
+
+//     private db: any;
+
+//     constructor(db: any) {
+//         this.db = db;
+//     }
+
+
+//     
+// }
+

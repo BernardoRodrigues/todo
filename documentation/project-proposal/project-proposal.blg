@@ -4,51 +4,56 @@ The top-level auxiliary file: project-proposal.aux
 The style file: plain.bst
 Database file #1: pp.bib
 Warning--entry type for "openid" isn't style-file defined
---line 13 of file pp.bib
-Warning--I didn't find a database entry for "dot_net"
-Warning--I didn't find a database entry for "mvc"
-Warning--I didn't find a database entry for "hibernate"
-Warning--I didn't find a database entry for "sql_server"
-Warning--I didn't find a database entry for "angular"
-You've used 1 entry,
+--line 6 of file pp.bib
+Warning--entry type for "todoist" isn't style-file defined
+--line 12 of file pp.bib
+Warning--entry type for "google-calendar" isn't style-file defined
+--line 24 of file pp.bib
+Warning--entry type for "dataset" isn't style-file defined
+--line 29 of file pp.bib
+Warning--entry type for "rest" isn't style-file defined
+--line 34 of file pp.bib
+Warning--to sort, need author or key in google-calendar
+Warning--empty journal in neural-net
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            507 strings with 4112 characters,
-and the built_in function-call counts, 226 in all, are:
-= -- 19
-> -- 7
+            522 strings with 4559 characters,
+and the built_in function-call counts, 1198 in all, are:
+= -- 107
+> -- 36
 < -- 0
-+ -- 3
-- -- 2
-* -- 8
-:= -- 43
-add.period$ -- 3
-call.type$ -- 1
-change.case$ -- 4
++ -- 17
+- -- 10
+* -- 37
+:= -- 197
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 23
 chr.to.int$ -- 0
-cite$ -- 1
-duplicate$ -- 7
-empty$ -- 23
-format.name$ -- 2
-if$ -- 46
+cite$ -- 8
+duplicate$ -- 45
+empty$ -- 129
+format.name$ -- 10
+if$ -- 258
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 8
-num.names$ -- 2
-pop$ -- 9
+int.to.str$ -- 6
+missing$ -- 1
+newline$ -- 32
+num.names$ -- 10
+pop$ -- 53
 preamble$ -- 1
-purify$ -- 3
+purify$ -- 17
 quote$ -- 0
-skip$ -- 7
+skip$ -- 43
 stack$ -- 0
-substring$ -- 5
-swap$ -- 1
+substring$ -- 31
+swap$ -- 5
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 4
-warning$ -- 0
-while$ -- 2
-width$ -- 2
-write$ -- 12
-(There were 6 warnings)
+type$ -- 24
+warning$ -- 2
+while$ -- 10
+width$ -- 7
+write$ -- 56
+(There were 7 warnings)

@@ -5,7 +5,7 @@
  * @extends {Error}
  * 
  */
-class NotFoundError extends Error {
+export class NotFoundError extends Error {
 
     /**
      *Creates an instance of NotFoundError.
@@ -21,5 +21,3 @@ class NotFoundError extends Error {
         this.name = 'NotFoundError'
     }
 }
-
-module.exports = NotFoundError

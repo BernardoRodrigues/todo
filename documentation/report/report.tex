@@ -1,0 +1,72 @@
+\documentclass[a4paper,openright,twoside,11pt]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{lipsum} % gerador de texto
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage[Algoritmo]{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{ragged2e}
+\usepackage[export]{adjustbox}
+\usepackage{indentfirst}
+\usepackage{xr}
+\usepackage{hyperref}
+\bibliographystyle{plain}
+
+% Definições das dimensões das páginas
+\setlength{\textheight}{24.00cm}
+\setlength{\textwidth}{15.50cm}
+\setlength{\topmargin}{0.35cm}
+\setlength{\headheight}{0cm}
+\setlength{\headsep}{0cm}
+\setlength{\oddsidemargin}{0.25cm}
+\setlength{\evensidemargin}{0.25cm}
+
+% Página inicial (capa)
+\title{
+	\vspace{-50mm}
+	\begin{minipage}[l]{\textwidth}
+		\hspace{-20mm}\resizebox{75mm}{!}{\includegraphics{./images/logoISEL.png}}\\
+	\end{minipage}\\[20mm]
+	{\bf todo}
+}
+
+% Nome dos autores (um por linha)
+\author{
+	\begin{tabular}{ll}
+		& Bernardo Rodrigues
+\end{tabular}}
+
+\date{
+	\begin{tabular}{ll}
+		{Supervisor:} & Nuno Leite \\
+	\end{tabular}\\[10mm]
+	% Deixar o indicador respetivo em função da versão do relatório.
+	Project report on Projecto e Seminário\\
+	Graduation on Software Engineering and Computer Science\\[20mm]
+	July 2021}
+
+\begin{document}
+	\renewcommand{\abstractname}{\vspace TODO{-\baselineskip}}
+	\thispagestyle{empty}
+	\maketitle
+	
+	\baselineskip 18pt % line spacing: 12pt for single, 18pt for 1 1/2, and 24pt for double spacing
+	
+	\newpage
+	\thispagestyle{empty}
+	% Fim da contracapa
+	
+	% Página com identificação completa (número e nome) e assinaturas do(s) estudante(s) e do(s) orientador(es)
+	
+	\setcounter{page}{1}
+	
+	
+	% Página de resumo em Português
+	\cleardoublepage
+	
+	\include{architecture.tex}
+	
+\end{document}

@@ -1,8 +1,35 @@
 \begin{thebibliography}{1}
 
+\bibitem{google-calendar}
+Google calendar.
+
+\bibitem{todoist}
+{Doist}.
+\newblock {Todoist}.
+\newblock \url{https://todoist.com/}.
+
+\bibitem{rest}
+{Fielding, Roy Thomas}.
+\newblock Rest, 2000.
+\newblock
+  \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm}.
+
 \bibitem{openid}
-{Brad Fitzpatrick}.
+{Fitzpatrick, Brad}.
 \newblock {OpenId Connect}, 2007.
 \newblock \url{https://openid.net/}.
+
+\bibitem{neural-net}
+{Gurney, Kevin}.
+\newblock {Neural Networks}.
+\newblock 1997.
+\newblock
+  \url{http://www.macs.hw.ac.uk/~yjc32/project/ref-NN/Gurney_et_al.pdf}.
+
+\bibitem{dataset}
+{U. Marti, H. Bunke}.
+\newblock The iam-database: An english sentence database for off-line
+  handwriting recognition.
+\newblock \url{https://fki.tic.heia-fr.ch/databases/iam-handwriting-database}.
 
 \end{thebibliography}
