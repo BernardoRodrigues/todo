@@ -21,6 +21,24 @@ Response:
 
 
 ### POST user/login
+logs user in
+Request body:
+```json
+{
+    "email": "example@gmail.com",
+    "password": "password"
+}
+```
+Response:
+* HTTP code 200
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM0YWZkODhiLTk5MWItNDk2NS1iMmM5LTk2ZTRjMmZjNThkZSJ9.He07nMDw6wYsqWknGzm-O2ykDuighPwhC6AdfIavs-w",
+    "email": "example@gmail.com",
+    "firstName": "Bernardo",
+    "lastName": "Rodrigues"
+}
+```
 
 ### POST user/logout
 
