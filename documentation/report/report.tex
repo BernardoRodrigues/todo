@@ -2,6 +2,54 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
+\begin{filecontents}{rp.bib}
+	@inproceedings{scale,
+		author = {Bondi, André},
+		year = {2000},
+		month = {01},
+		pages = {195-203},
+		title = {Characteristics of Scalability and Their Impact on Performance},
+		journal = {Proceedings Second International Workshop on Software and Performance WOSP 2000},
+		doi = {10.1145/350391.350432}
+	},
+	@techreport{jwt,
+		title = {JSON Web Token (JWT)},
+		author = {Michael B. Jones, John Bradley, Nat Sakimura},
+		howpublished = {Internet Requests for Comments},
+		url = {https://tools.ietf.org/html/rfc7519}
+		year = {2015},
+		number = 7519,
+		type = {RFC},
+		publisher = {RFC Editor},
+		institution = {RFC Editor},
+		issn = {2070-1721},
+		month = {5}
+	},
+	@article{
+		repositorypattern,
+		title = {An Introduction to Software Architecture},
+		author = {David Garlan, Mary Shaw},
+		journal = {School of Computer Science Carnegie Mellon University},
+		year = 1994,
+		pages = "12--13",
+	},
+	@techreport{pushprotocol,
+		title = {Generic Event Delivery Using HTTP Push},
+		author = {Martin Thomson, Elio Damaggio, Brian Raymor},
+		howpublished = {Internet Requests for Comments},
+		url = {https://tools.ietf.org/html/rfc8030}
+		year = {2016},
+		number = 8030,
+		type = {RFC},
+		publisher = {RFC Editor},
+		institution = {RFC Editor},
+		issn = {2070-1721},
+		month = {12}
+	}
+\end{filecontents}
+\usepackage[acronyms, nonumberlist]{glossaries}
+\newacronym[plural={Json Web Tokens}]{jwt}{JWT}{Json Web Token}
+%{long}{jwt}{name={JWT},description={JSON Web Token}}
 \usepackage{lipsum} % gerador de texto
 \usepackage{graphicx}
 \usepackage{url}
@@ -23,6 +71,9 @@
 \setlength{\headsep}{0cm}
 \setlength{\oddsidemargin}{0.25cm}
 \setlength{\evensidemargin}{0.25cm}
+
+\makeglossaries
+
 
 % Página inicial (capa)
 \title{
@@ -67,6 +118,22 @@
 	% Página de resumo em Português
 	\cleardoublepage
 	
-	\include{architecture.tex}
+	\printglossary[type=\acronymtype]
+	
+	%web push protocol https://tools.ietf.org/html/draft-ietf-webpush-protocol-12
+	
+	\include{abstract}
+	
+	\include{introduction}
+	
+	\include{state_of_art}
+	
+	\include{architecture}
+	
+	\include{database}
+	
+	\include{server_api}
+	
+	\bibliography{rp.bib}
 	
 \end{document}
