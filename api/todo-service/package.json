@@ -24,6 +24,7 @@
     "pg": "^8.6.0"
   },
   "devDependencies": {
-    "@types/morgan": "^1.9.2"
+    "@types/morgan": "^1.9.2",
+    "morgan": "^1.10.0"
   }
 }

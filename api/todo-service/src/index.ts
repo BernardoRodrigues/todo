@@ -4,7 +4,7 @@ if (process.env.NODE_ENV === 'production') {
 
 import express from "express";
 import logger from 'morgan'
-import { version } from '../package.json'
+// import { version } from '../package.json'
 import * as todoRouter from './routes/todo-routes'
 import { createServer as httpCreateServer } from "http";
 import { createServer as httpsCreateServer } from "https";
@@ -12,8 +12,8 @@ import { json } from "body-parser";
 const createServer = process.env.NODE_ENV === 'production' ? httpsCreateServer : httpCreateServer;
 
 const app = express()
-// const version = `v${require('./../../package.json').version.split('.')[0]}`;
-
+const version = `v${require('./../../package.json').version.split('.')[0]}`;
+// console.log("")
 const port = process.env.PORT || 5000;
 const server = createServer(
     app.use(logger('dev'))
