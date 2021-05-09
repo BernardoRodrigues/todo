@@ -41,12 +41,6 @@ build/Release
 node_modules/
 jspm_packages/
 
-# Certificates
-cert/
-
-# VS Code
-.vscode/
-
 # TypeScript v1 declaration files
 typings/
 
