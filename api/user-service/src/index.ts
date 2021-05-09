@@ -1,7 +1,3 @@
-
-if (process.env.NODE_ENV === 'production') {
-    require('dotenv').config()
-}
 import express from 'express'
 import logger from 'morgan'
 // import { version } from '../package.json'
@@ -9,6 +5,11 @@ import { json } from 'body-parser'
 import { createServer as httpCreateServer } from 'http';
 import { createServer as httpsCreateServer } from 'https'
 import userRouter from './routes/user-routes'
+import cors from 'cors';
+
+if (process.env.NODE_ENV === 'production') {
+    require('dotenv').config()
+}
 
 const createServer = process.env.NODE_ENV === 'production' ? httpsCreateServer : httpCreateServer;
 const app = express();
@@ -18,7 +19,7 @@ const port = process.env.PORT || 3000;
 const server = createServer(
     app.use(logger('dev'))
         .use(json())
-        .use(cors())
+        .use(cors)
         .use(`/api/${version}/user`, userRouter)
         .use('*', (_, res) => res.status(404).json({message: 'Page not found'}))
     )
