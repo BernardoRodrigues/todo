@@ -80,7 +80,7 @@ const port = process.env.PORT || 4330
 const version = `v${require('./../../package.json').version.split('.')[0]}`
 const app = express()
 const server = createServer({
-    cert: fs.readFileSync('./cert/server-certificate.pem'),
+    cert: fs.readFileSync('./cert/server-cert.pem'),
     key: fs.readFileSync('./cert/server-key.pem')
 },
     app.use(logger('dev'))
