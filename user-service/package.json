@@ -6,6 +6,8 @@
   "scripts": {
     "build:dev": "tsc && copyfiles -f src/cert/*.crt dist/src/cert && copyfiles -f src/cert/*.key dist/src/cert && copyfiles -f package.json dist",
     "start:dev": "NODE_ENV=dev node dist/src/index.js",
+    "build:prod": "tsc",
+    "start:prod": "NODE_ENV=prod node dist/src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Bernardo Rodrigues",

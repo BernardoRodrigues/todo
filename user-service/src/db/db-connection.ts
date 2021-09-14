@@ -1,6 +1,5 @@
 
-import { Pool, ClientConfig } from 'pg';
-import { DbConfig } from '../models/db-config';
+import { Pool } from 'pg';
 export class DbConnection {
 
     private pool: Pool;
@@ -10,13 +9,14 @@ export class DbConnection {
      * @param {DbConfig} config
      * @memberof DbConfig
      */
-    constructor(private config: DbConfig) {
+    constructor(private config?: string) {
         
-        if (this.config == null) {
-            throw new Error('db connection cannot be null')
-        }
         // const connection: ClientConfig = this.config;
-        this.pool = new Pool(this.config);
+        if (process.env.NODE_ENV === 'prd') {
+            this.pool = new Pool({connectionString: this.config, ssl:{rejectUnauthorized: false}});
+        } else {
+            this.pool = new Pool();
+        }
     }
 
     query(text: string, params: any[]) {

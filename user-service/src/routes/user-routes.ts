@@ -38,14 +38,7 @@ const authenticate = async (req, res, next) => {
 }
 
 // postgres://postgres:postgres@localhost:5432/todo_db
-const dbConfig: DbConfig = {
-    user: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "postgres",
-    port: process.env.DB_PORT == null ? 5433 : +process.env.DB_PORT,
-    database: process.env.DB_NAME || "todo_db",
-    host: process.env.DB_HOST || "localhost"
-};
-const connection = new DbConnection(dbConfig);
+const connection = new DbConnection(process.env.TODO_DB_URL);
 const userRepository = new UserRepository(connection);
 const key = readFileSync(join(__dirname, '..', 'cert', 'server-key.pem'));
 // const dir = __dirname.split("/").slice(0, __dirname.split("/").length - 1).join("/")

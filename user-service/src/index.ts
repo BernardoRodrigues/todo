@@ -12,7 +12,8 @@ import express from 'express'
 import logger from 'morgan'
 // import { version } from '../package.json'
 import { json } from 'body-parser'
-import { createServer } from 'https'
+import { createServer as createServerHttps } from 'https'
+import { createServer as createServerHttp } from 'http'
 import userRouter from './routes/user-routes'
 
 import { initialize, use } from 'passport';
@@ -33,14 +34,12 @@ use(new JwtStrategy({
 // console.log(resolve('environments', `${process.env.NODE_ENV}.env`))
 // console.log("ENV: ", process.env)
 const app = express();
-const version = `v${require('./../../package.json').version.split('.')[0]}`
-console.log(`Api version: ${version}`);
 const port = process.env.PORT || 3000;
-const server = createServer(
-    {
-        cert: readFileSync(join(__dirname, 'cert', 'user-service.crt')),
-        key: readFileSync(join(__dirname, 'cert', 'user-service.key'))
-    },
+const server = createServerHttp(
+    // {
+    //     cert: readFileSync(join(__dirname, 'cert', 'user-service.crt')),
+    //     key: readFileSync(join(__dirname, 'cert', 'user-service.key'))
+    // },
     app
         .use(logger('dev'))
         .use(initialize())
@@ -49,8 +48,9 @@ const server = createServer(
         .use(`/service/user`, userRouter)
         .use('*', (_, res) => res.status(404).json({message: 'Page not found'}))
     )
-    .listen(port, () => console.log(`Server started on port ${port} with version ${version}`))
+    .listen(port, () => console.log(`Server started on port ${port}`))
 process.on('SIGINT', () => { 
+    console.log("\nServer shutting down...")
     server.close();
     process.exit(-1);
 });
