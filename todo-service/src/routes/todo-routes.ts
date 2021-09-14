@@ -1,5 +1,4 @@
 import { InvalidJwtError } from './../errors/invalid-jwt.error';
-import { DbConfig } from './../models/db-config';
 import { DbConnection } from './../db/db-connection';
 import { TodoRepository } from '../db/todo.repository';
 import express from "express";
@@ -14,14 +13,8 @@ import { MissingValuesError } from '../errors/missing-values.error';
 
 //TODO get secret the right way
 const router = express.Router()
-const config: DbConfig = {
-    user: process.env.DB_USER || "postgres",
-    password: process.env.DB_PASSWORD || "postgres",
-    port: process.env.DB_PORT == null ? 5432 : +process.env.DB_PORT,
-    database: process.env.DB_NAME || "todo_db",
-    host: process.env.DB_HOST || "localhost"
-};
-const db = new DbConnection(config);
+
+const db = new DbConnection(process.env.TODO_DB_URL);
 const todoRep = new TodoRepository(db)
 const instance = axios.create(
     {httpsAgent: new Agent({rejectUnauthorized: false}), proxy: false}
@@ -34,7 +27,7 @@ const getUserIdFromJwt = async (req: any): Promise<string> => {
     if (token == null) {
         throw new MissingJwtError('jwt is null');
     }
-    const res = await instance.get(`${process.env.BASE_USER_URL}/verify-jwt?token=${token}`)
+    const res = await instance.get(`${process.env.TODO_USER_SERVICE_PATH}/service/user/verify-jwt?token=${token}`)
     switch(res.status) {
         case 200:
             return res.data.value.id;

@@ -22,7 +22,6 @@ import { json } from "body-parser";
 
 
 const app = express()
-const version = `v${require('./../../package.json').version.split('.')[0]}`;
 // console.log("")
 const port = process.env.PORT || 5000;
 const server = createServer(

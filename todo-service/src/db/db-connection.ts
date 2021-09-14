@@ -1,5 +1,4 @@
-import { DbConfig } from './../models/db-config';
-import { ClientConfig, Pool } from "pg";
+import { Pool } from "pg";
 
 export class DbConnection {
 
@@ -10,16 +9,14 @@ export class DbConnection {
      * @param {DbConnection} connection
      * @memberof TodoRepository
      */
-    constructor(private connection: DbConfig | string) {
-        if (connection == null) {
-            throw new Error("connection cannot be null")
+    constructor(private connection?: string) {
+
+        if (process.env.NODE_ENV === 'prd') {
+            this.pool = new Pool({connectionString: this.connection, ssl:{rejectUnauthorized: false}})
+        } else {
+
+            this.pool = new Pool();
         }
-        if (typeof connection === 'string') {
-            this.pool = new Pool({connectionString: this.connection as string})
-            return;
-        }
-        const config: ClientConfig = this.connection as DbConfig;
-        this.pool = new Pool(config);
     }
 
     query(text: string, params?: any[]) {
