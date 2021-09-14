@@ -1,4 +1,4 @@
-\chapter{API}
+\chapter{Web \gls{api}}
 	
 	%add api doc
 	%communication flow in the api
@@ -6,3 +6,30 @@
 	%security
 	%packages used
 	%etc
+	
+	The \gls{rest} web \gls{api} is composed of three micro-services, an \gls{api} gateway and a neural network\cite{neuralnetwork}.\\
+	The micro-services all have different responsibilities but they mostly follow the same pattern. Each service is divided into two main layers, the routing and the \gls{dal} which is comprised of a repository.
+	The whole \gls{api} was built utilizing NodeJS\cite{node} and Typescript\cite{typescript}.
+	All services use \textit{node-postgres}\cite{node-postgres} to interact with the database.
+	The gateway and some services utilize the \textit{axios}\cite{axios} package to send HTTP requests.
+	
+	
+	\section{\gls{api} Gateway}
+	
+		The \gls{api} gateway's purpose is to receive incoming requests and redirect them to the intended services. To make it follow the micro-service pattern it requires it to be stateless.
+		The gateway exposes a \gls{rest} \gls{api} to be used by the front-end applications. 
+		
+		
+	\section{User Service}
+		
+		The user service is responsible for all the operations regarding user accounts as well as verifying each request. The service exposes a route for other services to verify the \gls{jwt} authenticity. This route is only known by the other services and not available to the gateway.
+	
+	\section{To-do Service}
+		The to-do service serves the purpose of creating, updating and canceling to-do's. The service exposes a route for the task service so it can get all undone reminders. It also utilizes the verification route exposed by the user service as previously mentioned.
+	
+	\section{Task Service}
+		The task service periodically checks for undone to-do's. It does by sending an HTTP request to the to-do service to get all undone reminders. It also utilizes the user service to verify the authenticity of the requests. 
+		When the server is starting it schedules an event using the Node Schedule package\cite{nodeschedule} to periodically make these requests. As of right now it only checks every day at a specific time but eventually it will be able to receive a granularity value and be dynamic.
+		This service also is the one that sends the notifications to the users. It does this by using the Web Push package\cite{webpush}. 
+		If there is a failure when sending the notification it will erase the endpoint stored in the database as it probably means the user left the session or the endpoint is no longer available.
+		The task service utilizes VAPID\cite{vapid} keys. These keys are essential to utilize the Web Push Protocol.

@@ -1,3 +1,132 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{todoist}
+{{Doist Inc.}}
+\newblock {Todoist}.
+\newblock \url{https://todoist.com/} [Online accessed; 14-June-2021].
+
+\bibitem{google-calendar}
+{{Google Inc.}}
+\newblock {Google Calendar}.
+\newblock \url{https://calendar.google.com/} [Online accessed; 14-June-2021].
+
+\bibitem{notion}
+{{Notion Labs, Inc.}}
+\newblock {Notion}.
+\newblock \url{https://www.notion.so/} [Online accessed; 13-September-2021].
+
+\bibitem{evernote}
+{{Evernote Corporation}}.
+\newblock {Evernote}.
+\newblock \url{https://evernote.com/} [Online accessed; 13-September-2021].
+
+\bibitem{db-speed}
+Mark Drake.
+\newblock Sqlite vs mysql vs postgresql: A comparison of relational database
+  management systems.
+\newblock 2014.
+\newblock
+  \url{https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems}.
+
+\bibitem{monolith}
+{{Richardson, Chris}}.
+\newblock {Pattern: Monolithic Architecture}.
+\newblock Technical report, 2019.
+\newblock \url{Pattern: Monolithic Architecture} [Online accessed;
+  14-June-2021].
+
+\bibitem{scale}
+André Bondi.
+\newblock {Characteristics of Scalability and Their Impact on Performance}.
+\newblock In {\em Proceedings Second International Workshop on Software and
+  Performance WOSP 2000}, pages 195--203, 01 2000.
+
+\bibitem{microservice}
+{{Richardson, Chris}}.
+\newblock {Pattern: Microservice Architecture}.
+\newblock Technical report, 2019.
+\newblock \url{https://microservices.io/patterns/microservices.html} [Online
+  accessed; 14-June-2021].
+
+\bibitem{rest}
+{{Fielding, Roy}}.
+\newblock {\em {Architectural Styles andthe Design of Network-based Software
+  Architectures}}.
+\newblock software, University of California, Irvine, 2000.
+\newblock
+  \url{https://www.ics.uci.edu/~fielding/pubs/dissertation/fielding_dissertation.pdf}.
+
+\bibitem{jwt}
+M.~Jones, J.~Bradley, and N.~Sakimura.
+\newblock {JSON Web Token (JWT)}.
+\newblock RFC 7519, RFC Editor, May 2015.
+\newblock \url{http://www.rfc-editor.org/rfc/rfc7519.txt}.
+
+\bibitem{repositorypattern}
+Mary~Shaw David~Garlan.
+\newblock {An Introduction to Software Architecture}.
+\newblock {\em School of Computer Science Carnegie Mellon University}, pages
+  12--13, 1994.
+
+\bibitem{pushprotocol}
+M.~Thomson, E.~Damaggio, and B.~Raymor.
+\newblock {Generic Event Delivery Using HTTP Push}.
+\newblock RFC 8030, RFC Editor, December 2016.
+\newblock \url{http://www.rfc-editor.org/rfc/rfc8030.txt}.
+
+\bibitem{angular}
+{{Google Inc.}}
+\newblock {Angular}, 2021.
+\newblock \url{https://angular.io/} [Online accessed; 14-June-2021].
+
+\bibitem{postgres}
+{{The PostgreSQL Global Development Group}}.
+\newblock {PostgreSQL}, 2021.
+\newblock \url{https://www.postgresql.org/} [Online accessed; 14-June-2021].
+
+\bibitem{neuralnetwork}
+{{Gurney, Kevin}}.
+\newblock {\em {An introduction to neural networks}}.
+\newblock UCL Press Limited, 1997.
+
+\bibitem{node}
+{{OpenJS Foundation}}.
+\newblock {NodeJS}.
+\newblock \url{https://nodejs.org/} [Online accessed; 14-June-2021].
+
+\bibitem{typescript}
+{{Microsoft Inc.}}
+\newblock {Typescript}.
+\newblock \url{https://www.typescriptlang.org/} [Online accessed;
+  14-June-2021].
+
+\bibitem{node-postgres}
+{{Carlson, Brian}}.
+\newblock {node-postgres}.
+\newblock \url{https://node-postgres.com/} [Online access; 14-June-2021].
+
+\bibitem{axios}
+{{The Axios Project}}.
+\newblock {Axios}.
+\newblock \url{https://github.com/axios/axios} [Online accessed; 14-June-2021].
+
+\bibitem{nodeschedule}
+{{Patenaude, Matt}}.
+\newblock {Node Schedule}.
+\newblock \url{https://github.com/node-schedule/node-schedule} [Online
+  accessed; 14-June-2021].
+
+\bibitem{webpush}
+{{Castelluccio, Marco}}.
+\newblock {Web Push}.
+\newblock \url{https://github.com/web-push-libs/web-push} [Online accessed;
+  14-June-2021].
+
+\bibitem{vapid}
+Martin Thomson and Peter Beverloo.
+\newblock {Voluntary Application Server Identification for Web Push}.
+\newblock Internet-Draft draft-thomson-webpush-vapid-02, Internet Engineering
+  Task Force, January 2016.
+\newblock Work in Progress.
 
 \end{thebibliography}

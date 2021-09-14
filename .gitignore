@@ -44,6 +44,9 @@ jspm_packages/
 # Certificates
 cert/
 
+# Environment files
+*.env
+
 # Vapid keys
 api/task-service/src/files/
 

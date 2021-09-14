@@ -2,66 +2,32 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 
-\begin{filecontents}{rp.bib}
-	@inproceedings{scale,
-		author = {Bondi, André},
-		year = {2000},
-		month = {01},
-		pages = {195-203},
-		title = {Characteristics of Scalability and Their Impact on Performance},
-		journal = {Proceedings Second International Workshop on Software and Performance WOSP 2000},
-		doi = {10.1145/350391.350432}
-	},
-	@techreport{jwt,
-		title = {JSON Web Token (JWT)},
-		author = {Michael B. Jones, John Bradley, Nat Sakimura},
-		howpublished = {Internet Requests for Comments},
-		url = {https://tools.ietf.org/html/rfc7519}
-		year = {2015},
-		number = 7519,
-		type = {RFC},
-		publisher = {RFC Editor},
-		institution = {RFC Editor},
-		issn = {2070-1721},
-		month = {5}
-	},
-	@article{
-		repositorypattern,
-		title = {An Introduction to Software Architecture},
-		author = {David Garlan, Mary Shaw},
-		journal = {School of Computer Science Carnegie Mellon University},
-		year = 1994,
-		pages = "12--13",
-	},
-	@techreport{pushprotocol,
-		title = {Generic Event Delivery Using HTTP Push},
-		author = {Martin Thomson, Elio Damaggio, Brian Raymor},
-		howpublished = {Internet Requests for Comments},
-		url = {https://tools.ietf.org/html/rfc8030}
-		year = {2016},
-		number = 8030,
-		type = {RFC},
-		publisher = {RFC Editor},
-		institution = {RFC Editor},
-		issn = {2070-1721},
-		month = {12}
-	}
-\end{filecontents}
 \usepackage[acronyms, nonumberlist]{glossaries}
 \newacronym[plural={Json Web Tokens}]{jwt}{JWT}{Json Web Token}
+\newacronym[plural={Application Programming Interfaces}]{api}{API}{Application Programming Interface}
+\newacronym{rest}{REST}{Representational State Transfer}
+\newacronym[plural={Data Access Layers}]{dal}{DAL}{Data Access Layer}
+\newacronym[plural={Structured Query Languages}]{sql}{SQL}{Structured Query Language}
+\newacronym[plural={Relational Database Management Systems}]{rdmbs}{RDMBS}{Relational Database Management System}
+\newacronym[plural={User Interfaces}]{ui}{UI}{User Interface}
 %{long}{jwt}{name={JWT},description={JSON Web Token}}
 \usepackage{lipsum} % gerador de texto
 \usepackage{graphicx}
 \usepackage{url}
-\usepackage[Algoritmo]{algorithm}
-\usepackage{algorithmicx}
-\usepackage{algpseudocode}
+
+\usepackage{datetime}
+
+
+\newdateformat{monthyeardate}{%
+	\monthname[\THEMONTH], \THEYEAR}
 \usepackage{ragged2e}
 \usepackage[export]{adjustbox}
 \usepackage{indentfirst}
 \usepackage{xr}
 \usepackage{hyperref}
-\bibliographystyle{plain}
+%\bibliographystyle{plain}
+
+
 
 % Definições das dimensões das páginas
 \setlength{\textheight}{24.00cm}
@@ -73,6 +39,7 @@
 \setlength{\evensidemargin}{0.25cm}
 
 \makeglossaries
+\usepackage[nottoc]{tocbibind}
 
 
 % Página inicial (capa)
@@ -81,7 +48,7 @@
 	\begin{minipage}[l]{\textwidth}
 		\hspace{-20mm}\resizebox{75mm}{!}{\includegraphics{./images/logoISEL.png}}\\
 	\end{minipage}\\[20mm]
-	{\bf todo}
+	{\bf ToDo - System for managing user's To Do list}
 }
 
 % Nome dos autores (um por linha)
@@ -95,38 +62,46 @@
 		{Supervisor:} & Nuno Leite \\
 	\end{tabular}\\[10mm]
 	% Deixar o indicador respetivo em função da versão do relatório.
-	Project report on Projecto e Seminário\\
-	Graduation on Software Engineering and Computer Science\\[20mm]
-	July 2021}
+	Report written for Project and Seminary\\
+	from the Bachelor’s Degree in Computer Science and Computer Engineering\\[20mm]
+	\monthyeardate\today}
 
 \begin{document}
-	\renewcommand{\abstractname}{\vspace TODO{-\baselineskip}}
+	\renewcommand{\bibname}{References}
+	\renewcommand{\abstractname}{\vspace {-\baselineskip}}
 	\thispagestyle{empty}
 	\maketitle
-	
+
 	\baselineskip 18pt % line spacing: 12pt for single, 18pt for 1 1/2, and 24pt for double spacing
 	
 	\newpage
-	\thispagestyle{empty}
+	\pagenumbering{roman}
 	% Fim da contracapa
+
 	
 	% Página com identificação completa (número e nome) e assinaturas do(s) estudante(s) e do(s) orientador(es)
 	
-	\setcounter{page}{1}
+
 	
 	
 	% Página de resumo em Português
 	\cleardoublepage
+
 	
-	\printglossary[type=\acronymtype]
+	\tableofcontents
+
+	
+	\printglossary[type=\acronymtype, title=List of Acronyms]
+
+	
+	\listoffigures
 	
 	%web push protocol https://tools.ietf.org/html/draft-ietf-webpush-protocol-12
-	
-	\include{abstract}
-	
+
+
+	\pagenumbering{arabic}
+	\setcounter{page}{1}
 	\include{introduction}
-	
-	\include{state_of_art}
 	
 	\include{architecture}
 	
@@ -134,6 +109,9 @@
 	
 	\include{server_api}
 	
-	\bibliography{rp.bib}
+	\include{conclusions}
+	
+	\bibliographystyle{unsrt}
+	\bibliography{rp}
 	
 \end{document}

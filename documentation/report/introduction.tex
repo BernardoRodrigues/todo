@@ -1,1 +1,47 @@
 \chapter{Introduction}
+
+
+\section{Motivation and Objectives}
+\setlength{\parindent}{0.5cm}
+In today’s fast and complex world people try to schedule days or weeks. People create small
+reminders, either electronically or physically, to do something, whatever that may be. Those
+little notes we give to ourselves, those ”to-do’s” are often forgotten and not fully fulfilled.
+There exists software applications in the market that partially accomplishes this goal. They will often remind the user of the task that needs to be done only using the time frame the user gave. This creates a problem where the individual makes a reminder,
+does not do it and the application will not keep notifying the user.\\
+As such the proposed solution will attempt to mend that by creating an environment where a reminder is easily
+created but hardly forgotten or skipped over. The solution consists of a web application divided into three different components, a front-end web app, a back-end web \gls{api} and a database. This application will allow the users to create
+an account and then make reminders. The users will be notified by the application until they mark said reminder as done.\\
+The notification is a necessity to ensure the user fulfills the reminder. Since the user will be notified until the reminder is marked as "done" the person will be reminded every day until the completion of the task.
+
+For this purpose a set of mandatory requirements was outlined:
+\begin{itemize}
+	\item Account creation, login, logout and account deletion;
+	\item Reminder creation, update and deletion;
+	\item Notifications;
+\end{itemize}
+
+Some optional requirements were also outline to enrich the application:
+\begin{itemize}
+	\item Translations
+	\item Priority notifications
+\end{itemize}
+
+This report will outline the process of the application development, the choices made and the work
+that remains to be done.
+
+\section{State of the art}
+
+Through a brief research a multitude of application can be found to create reminders, although with different end goals. A few examples of some of these are \textit{Todoist \cite{todoist}}, Google Calendar's reminder system \cite{google-calendar}, \textit{Notion \cite{notion}} and \textit{Evernote \cite{evernote}}.
+
+
+Google Calendar allows the user to create events in the calendar and reminds the user a set time before said event. Even though the end goal is different it still functions as a reminder system of sorts.
+
+\textit{Notion} allows the user to create lists of reminders and has different visualization tools to accommodate the user's needs.
+
+\textit{Evernote} is one of the most complete of all the mentioned applications. It allows the user to create not only reminders but store different types of information for future use, such as hyperlinks, images, etc. It has templates for different types of reminders and it notifies the user on the due time.
+
+\textit{Todoist} is the application that most resembles the end goal established with this project. It allows the user to create tasks, sub-tasks and even recurring tasks. The application also notifies the user on due time.
+
+These applications all allow the user to create reminders, some with more extra features, and remind the user on their due time.
+
+Since all these solutions have a mobile applications (except for Notion), they make the notifications more effective, although they stop notifying the user when the reminder's due date is due.
