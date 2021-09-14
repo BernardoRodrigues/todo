@@ -2,7 +2,6 @@ import { DbConnection } from '../db/db-connection';
 import { UserModel } from './../models/user-model';
 import { Router } from "express";
 import { UserRepository } from "../db/user-repository";
-import { DbConfig } from "../models/db-config";
 import { verify, sign, decode } from 'jsonwebtoken' 
 // import passport, { authenticate, authorize, use } from 'passport'
 import { readFileSync } from 'fs'
