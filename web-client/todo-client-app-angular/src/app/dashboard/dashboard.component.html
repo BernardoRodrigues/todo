@@ -1,0 +1,29 @@
+<mat-sidenav-container class="container">
+  <mat-sidenav #snav="matSidenav"  [opened]="this.sideBarOpen" (closed)="this.drawerClosed()">
+    <mat-nav-list>
+      <button mat-button class="menu-button" (click)="this.openNavItem = 'list'">
+        <mat-icon>list</mat-icon>
+        <span>List</span>
+      </button>
+      <button mat-button class="menu-button" (click)="this.openNavItem = 'calendar'">
+        <mat-icon>calendar_today</mat-icon>
+        <span>Calendar</span>
+      </button>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content fxFill="80">
+    <div class="content">
+
+      <div [hidden]="this.openNavItem !== 'list'">
+        <app-list></app-list>
+      </div>
+      <div [hidden]="this.openNavItem !== 'calendar'">
+        <app-calendar></app-calendar>
+      </div>
+    </div>
+
+    <button mat-fab class="add-icon-btn" (click)="this.openDialogToCreateEvent()">
+      <mat-icon class="add-icon">add</mat-icon>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>

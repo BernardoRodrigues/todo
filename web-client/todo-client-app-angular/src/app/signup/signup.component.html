@@ -1,0 +1,50 @@
+
+  <div class="signup-dialog" fxLayout="column" fxLayoutAlign="space-around stretch">
+      <h1>Sign In</h1>
+    <mat-dialog-content fxLayout="column">
+
+        <form [formGroup]="this.signupFormGroup" class="login-form">
+          <mat-form-field class="login-inputs">
+            <!-- <mat-label>Email</mat-label> -->
+            <input matInput type="email" formControlName="email" [placeholder]="'Email'">
+          </mat-form-field>
+          <div class="login-errors" *ngIf="this.isEmailInvalid">
+            <mat-error *ngIf="this.emailForm.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="this.emailForm.errors?.email">Wrong format</mat-error>
+          </div>
+          <mat-form-field class="login-inputs">
+            <!-- <mat-label>Email</mat-label> -->
+            <input matInput type="text" formControlName="firstName" [placeholder]="'First Name'">
+          </mat-form-field>
+          <div class="login-errors" *ngIf="this.isFirstNameInvalid">
+            <mat-error *ngIf="this.firstNameForm.errors?.required">First Name is required</mat-error>
+          </div>
+          <mat-form-field class="login-inputs">
+            <!-- <mat-label>Email</mat-label> -->
+            <input matInput type="text" formControlName="lastName" [placeholder]="'Last Name'">
+          </mat-form-field>
+          <div class="login-errors" *ngIf="this.isLastNameInvalid">
+            <mat-error *ngIf="this.lastNameForm.errors?.required">Last Name is required</mat-error>
+          </div>
+          <mat-form-field class="login-inputs">
+            <input matInput [type]="show ? 'text' : 'password'" formControlName="password" [placeholder]="'Password'">
+
+
+          </mat-form-field>
+          <button mat-button (click)="this.show = !this.show">
+            <mat-icon *ngIf="!this.show" >visibility</mat-icon>
+            <mat-icon *ngIf="this.show" >visibility_off</mat-icon>
+          </button>
+          <div class="login-errors" *ngIf="this.isPasswordInvalid">
+            <mat-error *ngIf="this.passwordForm.errors?.required">Password is required</mat-error>
+            <mat-error *ngIf="this.passwordForm.errors?.minlength">Password must be at least 8 caracthers long</mat-error>
+          </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <!-- <button mat-button>Cancel</button> -->
+        <button [disabled]="!this.isFormValid" mat-raised-button color="primary" (click)="this.submitNewAccount()">Sign In</button>
+        <button mat-raised-button mat-dialog-close color="yellow">Close</button>
+    </mat-dialog-actions>
+  </div>
+

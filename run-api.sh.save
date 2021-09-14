@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# run and build user service
+gnome-terminal --working-directory=~/Documents/Projects/todo --wait -- echo $PWD read -n 1 -p "Input Selection:" && npm --prefix user-service run build && npm --prefix user-service run start-dev
+
+# run and build todo service
+gnome-terminal --working-directory=~/Documents/Projects/todo --wait -- echo $PWD npm --prefix todo-service run build && npm --prefix todo-service run start-dev
+
+# run and build task service
+gnome-terminal --working-directory=~/Documents/Projects/todo --wait -- npm --prefix task-service run build && npm --prefix task-service run start-dev
+
+# run and build gateway
+gnome-terminal --working-directory=~/Documents/Projects/todo --wait -- npm --prefix gateway run build && npm --prefix gateway run start-dev

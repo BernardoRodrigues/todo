@@ -1,0 +1,44 @@
+\chapter{Architecture}
+
+	%https://martinfowler.com/articles/microservices.html
+	%
+	
+	
+	
+	The architecture for the API was thoroughly researched and studied. At first this project was gonna use a monolithic architecture \cite{monolith} where the whole API would be implement on a single server as seen in the image below.
+	%TODO add image of monolith arch
+	
+	This was later changed due to the fact that it wasn't as easily scalable \cite{scale}. After this it was decided that the API would be implemented using a \textit{microservice}\cite{microservice} architecture. This allows for a more select scalability. When needed, more instances of the same services can be launched and improve overall performance.
+	
+	There will be different services:
+	\begin{enumerate}
+		\item User
+		\item To-do
+		\item Task
+	\end{enumerate}
+
+	%TODO add image here add image of micro-service arch
+	
+	There was also the idea of combining both the monolithic and micro-service architecture in a mixture of both patterns. This idea was later scrapped and the micro-service system was then chosen.
+	
+	%TODO add image of monolith - microservice arch
+	
+	Each of these services are independent from one another and self sufficient, each with it's own responsibilities. 
+	
+	%https://tools.ietf.org/html/rfc7519
+	%https://www.rfc-editor.org/rfc/pdfrfc/rfc7519.txt.pdf
+	
+	% https://www.cs.cmu.edu/afs/cs/project/vit/ftp/pdf/intro_softarch.pdf
+	
+	\section{User}
+	The user micro-service will have the operations needed for an user to utilize the application. These operations consist of the sign up, login, logout and, delete.
+	The micro-service will use \gls{jwt} \cite{jwt} as a way to make sure the users only access their information.
+	The service is split into two different areas, the repository\cite{repositorypattern} that accesses the database and ,the routing.
+	
+	\section{To-do}
+	The to-do micro-service handles all the operations necessary to manage the to-do's. These operations embedded in this service are to-do creation, deletion and update.
+	This micro-service will interact with the user service to validate and extract the \gls{jwt} information.
+	
+	\section{Task}
+	The task micro-service has three main objectives. It offers a way to subscribe and unsubscribe users to receive notifications as well as checking the database periodically to ensure the notifications are sent to the subscribed users. The notifications will be sent according to the push protocol\cite{pushprotocol}.
+	 

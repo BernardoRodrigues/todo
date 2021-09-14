@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <div *ngIf="this.isLoggedIn">
+    <button mat-icon-button (click)="this.isMenuOpened = !this.isMenuOpened">
+      <mat-icon *ngIf="this.isMenuOpened">close</mat-icon>
+  
+      <mat-icon *ngIf="!this.isMenuOpened">menu</mat-icon>
+    </button>
+  </div>
+
+  <!-- shift everything to the right -->
+  <div class="header-buttons">
+    <div *ngIf="this.isLoggedIn">
+      <button mat-raised-button [matMenuTriggerFor]="beforeMenu" (onMenuOpen)="this.isMenuOpened = true" (onMenuClose)="this.isMenuOpened = false">
+        <span>{{userName}}</span>
+        <mat-icon *ngIf="!this.isMenuOpened">expand_more</mat-icon>
+        <mat-icon *ngIf="this.isMenuOpened">expand_less</mat-icon>
+      </button>
+
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <button mat-button (click)="this.logout()">Logout</button>
+        </mat-menu>
+    </div>
+    <div class="" *ngIf="!this.isLoggedIn">
+      <button class="user-buttons" mat-raised-button (click)="this.openLoginDialog()">
+        <span>Log in</span>
+      </button>
+      <button class="user-buttons" mat-raised-button (click)="this.openSignupDialog()">
+        <span>Sign in</span>
+      </button>
+    </div>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,63 @@
+<div class="dashboard" fxLayout="column">
+
+    
+
+    <div class="row-above-calendar" fxLayout="row" fxLayoutAlign="space-between center">
+      <!-- fxFlex="20" -->
+      <div>
+        <button mat-button mwlCalendarPreviousView [view]="this.format" [(viewDate)]="this.viewDate">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+      </div>
+      <div>
+        <mat-button-toggle-group #group="matButtonToggleGroup" value="month" (change)="this.format = group.value">
+          <mat-button-toggle value="month">Month</mat-button-toggle>
+          <mat-button-toggle value="week">Week</mat-button-toggle>
+          <mat-button-toggle value="day">Day</mat-button-toggle>
+        </mat-button-toggle-group>
+      </div>
+      <div>
+        <button mat-button mwlCalendarNextView [view]="this.format" [(viewDate)]="this.viewDate">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+      <!-- <div fxFlex></div> -->
+      <!-- <div fxFlex="5" fxFlexAlign="end" class="add-button">
+    <button mat-fab (click)="this.openNewTodoDialog()">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+  </div> -->
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="center center">
+
+      <h1 *ngIf="this.format === 'month'">{{viewDate | date: 'MMMM, y'}}</h1>
+      <h1 *ngIf="this.format === 'day'">{{viewDate | date: 'MMMM d, y'}}</h1>
+      <h1 *ngIf="this.format === 'week'">{{this.firstDayOfWeek | date: 'MMMM d, y'}} -
+        {{this.lastDayOfWeek | date: 'MMMM d, y'}}</h1>
+    </div>
+    <!-- <span *ngIf="this.format === 'week'">{{viewDate | date: ''}}</span> -->
+
+    <div>
+
+      <mwl-calendar-month-view [hidden]="group.value !== 'month'" [events]="this._events"
+        (eventClicked)="this.eventClicked('month', $event.event)" [viewDate]="viewDate"
+        (dayClicked)="this.dayClicked($event.day, $event.sourceEvent)">
+        <!-- (beforeViewRender)="" -->
+
+      </mwl-calendar-month-view>
+
+      <mwl-calendar-week-view [hidden]="group.value !== 'week'" [events]="this._events"
+        (eventClicked)="this.eventClicked('week', $event.event)" [viewDate]="viewDate">
+        <!-- (beforeViewRender)="" -->
+
+      </mwl-calendar-week-view>
+      <mwl-calendar-day-view [hidden]="group.value !== 'day'" [events]="this._events"
+        (eventClicked)="this.eventClicked('day', $event.event)" [viewDate]="viewDate">
+        <!-- (beforeViewRender)="" -->
+
+      </mwl-calendar-day-view>
+
+
+    </div>
+  </div>

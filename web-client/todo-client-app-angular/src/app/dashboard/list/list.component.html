@@ -1,0 +1,18 @@
+<div class="component-list" fxLayout="row" fxLayoutAlign="space-around center">
+    <div>
+        <span>Not Done</span>
+        <mat-card *ngFor="let tnd of this.todosNotDone">
+            <mat-card-title>{{tnd.title}}</mat-card-title>
+        </mat-card>
+    </div>
+
+    <mat-divider [vertical]="true"></mat-divider>
+
+    <div>
+        <span>Done</span>
+        <mat-card *ngFor="let td of this.todosDone" class="">
+            <mat-card-title>{{td.title}}</mat-card-title>
+        </mat-card>
+    </div>
+
+</div>

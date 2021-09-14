@@ -1,0 +1,84 @@
+.dashboard {
+  margin-top: 20px;
+  padding: 0 20px 0 20px;
+  height: inherit;
+  width: inherit;
+}
+
+.add-button {
+  padding-right: 20px;
+}
+
+.row-above-calendar {
+  box-sizing: border-box;
+  flex-direction: row;
+  display: flex;
+  place-content: center;
+  margin-bottom: 30px;
+}
+
+.add-icon-btn {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background: #00b3aa;
+  color: #fff;
+  font-size: 25px;
+  margin-right: 25px;
+  margin-bottom: 5px;
+  z-index: 999;
+  height: 80px;
+  width: 80px;
+}
+
+.add-icon {
+  height: inherit;
+  width: inherit;
+  font-size: 60px;
+}
+
+
+mat-button-wrapper > span {
+  padding: 10px 0 0 0 !important;
+}
+
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #002b5c;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+
+.menu-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1rem;
+
+  mat-icon {
+      margin-right: 8px;
+  }
+}
+
+.content {
+  height: calc(100vh - 98px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  color: lightgray;
+}
+
+.container {
+  width: 100%;
+}

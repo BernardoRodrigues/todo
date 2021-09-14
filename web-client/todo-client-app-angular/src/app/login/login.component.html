@@ -1,0 +1,36 @@
+
+<div class="login-dialog" fxLayout="column" fxLayoutAlign="space-around stretch">
+  <h1>Login</h1>
+
+    <mat-dialog-content fxLayout="column">
+
+        <form [formGroup]="this.loginFormGroup" class="login-form">
+          <mat-form-field class="login-inputs">
+            <!-- <mat-label>Email</mat-label> -->
+            <input matInput type="email" formControlName="email" [placeholder]="'Email'">
+          </mat-form-field>
+          <div class="login-errors" *ngIf="this.isEmailInvalid">
+            <mat-error *ngIf="this.emailForm.errors?.required">Email is required</mat-error>
+            <mat-error *ngIf="this.emailForm.errors?.email">Wrong format</mat-error>
+          </div>
+          <mat-form-field class="login-inputs">
+            <input matInput [type]="show ? 'text' : 'password'" formControlName="password" [placeholder]="'Password'">
+
+
+          </mat-form-field>
+          <button mat-raised-button (click)="this.show = !this.show">
+            <mat-icon *ngIf="!this.show" class="mat-18">visibility</mat-icon>
+            <mat-icon *ngIf="this.show" class="mat-18">visibility_off</mat-icon>
+          </button>
+          <div class="login-errors" *ngIf="this.isPasswordInvalid">
+            <mat-error *ngIf="this.passwordForm.errors?.required">Password is required</mat-error>
+            <mat-error *ngIf="this.passwordForm.errors?.minlength">Password must be at least 8 caracthers long</mat-error>
+          </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <!-- <button mat-button>Cancel</button> -->
+        <button [disabled]="this.loginFormGroup.invalid" mat-raised-button (click)="this.submitLogin()">Login</button>
+        <button mat-button mat-dialog-close >Close</button>
+    </mat-dialog-actions>
+</div>

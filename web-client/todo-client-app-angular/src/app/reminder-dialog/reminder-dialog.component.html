@@ -1,0 +1,68 @@
+<div [ngStyle]="{'color' : this.color }" class="reminder-dialog">
+  <div mat-dialog-actions *ngIf="this.mode === 'R'">
+    <button (click)="this.edit = !this.edit">
+      <mat-icon *ngIf="!this.edit">edit</mat-icon>
+      <mat-icon *ngIf="this.edit">highlight_off</mat-icon>
+    </button>
+
+  </div>
+  <div *ngIf="this.mode === 'C'">
+    <h2>New Reminder</h2>
+  </div>
+  <form [formGroup]="this.reminderFormGroup">
+    <div mat-dialog-content >
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput type="text" formControlName="title" placeholder="Your reminders name...">
+      </mat-form-field>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Start Date</mat-label>
+          <input matInput formControlName="startDateDate" [matDatepicker]="startDateDatePicker">
+          <mat-datepicker-toggle matSuffix [for]="startDateDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDateDatePicker></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <input matInput [ngxTimepicker]="startDatePicker" [format]="24" formControlName="startDateTime">
+          <ngx-material-timepicker #startDatePicker ></ngx-material-timepicker>
+        </div>
+        <mat-form-field appearance="fill">
+          <mat-label>End Date</mat-label>
+          <input matInput formControlName="endDateDate" [matDatepicker]="endDateDate">
+          <mat-datepicker-toggle matSuffix [for]="endDateDate"></mat-datepicker-toggle>
+          <mat-datepicker #endDateDate></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <input matInput [ngxTimepicker]="endDatePicker" [format]="24" formControlName="startDateTime">
+          <ngx-material-timepicker #endDatePicker ></ngx-material-timepicker>
+        </div>
+        <mat-error *ngIf="this.reminderFormGroup.errors?.dates != null">
+          <span>Start Date cannot be after End Date</span>
+        </mat-error>
+      </div>
+
+
+      <div>
+        <mat-form-field>
+          <mat-label>Priority</mat-label>
+          <mat-select formControlName="priority">
+            <mat-option *ngFor="let priority of priorities" [value]="priority.value" [ngStyle]="{'background-color' : priority.color }" >
+              {{priority.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+
+
+
+    </div>
+
+
+    <div mat-dialog-actions>
+        <button mat-raised-button mat-dialog-close>Close</button>
+        <button mat-raised-button (click)="this.createNewReminder()">Create</button>
+
+    </div>
+  </form>
+</div>
+
