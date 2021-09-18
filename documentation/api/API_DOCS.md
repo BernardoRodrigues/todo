@@ -1,7 +1,4 @@
 
-# API
-The api url's always start with the prefix "api/$$version$$".
-
 # USER
 
 ### POST user/signup
